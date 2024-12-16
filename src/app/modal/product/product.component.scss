@@ -1,0 +1,23 @@
+::ng-deep.mat-card-header-text {
+    margin: 0 0px !important;
+}
+
+textarea {
+    width: 100% !important;
+}
+
+::ng-deep.mat-dialog-container{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.imageUpload {
+    width: 100%;
+    background-color: lightgray;
+    color: black;
+    margin: 1rem 0;
+}
+
+.invalid-feedback{
+    display: block;
+  }

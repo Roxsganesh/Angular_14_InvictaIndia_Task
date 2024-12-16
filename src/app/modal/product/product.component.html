@@ -1,0 +1,103 @@
+<div class="register">
+    <mat-card>
+      <mat-card-header>
+          <h1>{{this.pageType == "AddProduct" ? "Add Product" :"Update Product"}}</h1>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form class="example-form" [formGroup]="productFrom" (ngSubmit)="updateProduct()">
+            <div class="row">
+              <div class="col-lg-6">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Product Id</mat-label>
+                  <input matInput placeholder="id" formControlName="id" type="number">
+                </mat-form-field>
+                <div *ngIf="submitted && f['id']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['id']['errors']['required']">
+                      Please enter the id
+                  </div>
+                  <div *ngIf="f['id']['errors']['minlength']">
+                      Id should atleast contain minimum 2 digits
+                  </div>
+                </div>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Title</mat-label>
+                  <input matInput placeholder="title" formControlName="title" type="text">
+                </mat-form-field>
+                <div *ngIf="submitted && f['title']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['title']['errors']['required']">
+                      Please enter the title
+                  </div>
+                </div>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Price</mat-label>
+                  <input matInput placeholder="price" formControlName="price" type="number">
+                </mat-form-field>
+                <div *ngIf="submitted && f['price']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['price']['errors']['required']">
+                      Please enter the price
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Category</mat-label>
+                  <input matInput placeholder="category" formControlName="category" type="text">
+                </mat-form-field>
+                <div *ngIf="submitted && f['category']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['category']['errors']['required']">
+                      Please enter the category
+                  </div>
+                </div>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Rate</mat-label>
+                  <input matInput placeholder="rate" formControlName="rate" type="number">
+                </mat-form-field>
+                <div *ngIf="submitted && f['rate']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['rate']['errors']['required']">
+                      Please enter the rate
+                  </div>
+                </div>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Count</mat-label>
+                  <input matInput placeholder="count" formControlName="count" type="number">
+                </mat-form-field>
+                <div *ngIf="submitted && f['count']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['count']['errors']['required']">
+                      Please enter the count
+                  </div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput name="description" cols="20" rows="6" placeholder="Description" formControlName="description"></textarea>
+                </mat-form-field>
+                <div *ngIf="submitted && f['description']['errors']" class="invalid-feedback">
+                  <div *ngIf="f['description']['errors']['required']">
+                      Please enter description
+                  </div>
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="example-full-width">
+                  <!-- <mat-label>Image</mat-label> -->
+                  <input #Image type="file" (change)="handleFileInput($event)" name="image" class="imageUpload"/>
+                  <div *ngIf="submitted && f['image']['errors']" class="invalid-feedback">
+                    <div *ngIf="f['image']['errors']['required']">
+                       Please select an image
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="example-section">
+                <button type="submit" mat-raised-button color="primary" class="float-end" [disabled]="!productFrom.valid">Submit</button>
+                <button type="button" mat-raised-button color="accent" class="float-end mx-2" (click)="closePopup()">Close</button>
+              </div>
+            </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+</div>
